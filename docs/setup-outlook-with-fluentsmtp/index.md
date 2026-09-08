@@ -11,7 +11,7 @@ Outlook / Microsoft 365 is not for mass marketing. Use it for site mail (forms, 
 
 ## Open FluentSMTP
 
-**Settings → FluentSMTP**. Pick **Microsoft**, or **Add Connection** → **Microsoft**. Copy **App Callback URL** from the form. With pretty permalinks it is `/wp-json/fluent-smtp/outlook_callback`. With Plain permalinks it is `index.php?rest_route=/fluent-smtp/outlook_callback`. Use the string the form shows, character for character.
+**Settings → FluentSMTP**. Pick **Outlook or Office 365**, or **Add Connection** → **Outlook or Office 365**. Copy **App Callback URL** from the form. With pretty permalinks it is `/wp-json/fluent-smtp/outlook_callback`. With Plain permalinks it is `index.php?rest_route=/fluent-smtp/outlook_callback`. Use the string the form shows, character for character.
 
 ![Outlook connection form](/images/outlook-connection.png)
 
@@ -25,15 +25,27 @@ Outlook / Microsoft 365 is not for mass marketing. Use it for site mail (forms, 
 6. **Redirect URI**: **Web**, value = **App Callback URL**.
 7. **Register**. Copy **Application (client) ID**.
 
+The Entra admin center exposes the same registration settings. Use your own site’s callback, copied directly from FluentSMTP.
+
+![Microsoft Entra app registration with Web callback and organizational and personal account support](/images/microsoft-entra-register-app.png)
+
+The screenshot uses `smtp.lab`; substitute the callback copied from your own site.
+
 ## Client secret
 
 1. **Certificates & secrets → + New client secret**.
 2. Add, then copy **Value**. Not Secret ID.
 
+![Microsoft client secret creation showing description and expiry](/images/microsoft-entra-client-secret.png)
+
 ## FluentSMTP
 
 Leave **Store in Database** selected. Paste Client ID and Client Secret. Leave **Directory (tenant) ID** empty unless the app is single-tenant (then paste the tenant ID from Overview). Click **Authenticate with Office365**, approve, save. You can tick **Disable Encryption**, or switch to **Store in wp-config.php**. Both are optional. See [Where secrets are stored](/fluent-smtp-settings/#where-secrets-are-stored).
 
-Send a test. If Google-style redirect errors appear, the URI in Azure does not match the callback on the form.
+After approval, copy **Your Access Code** from the callback window into FluentSMTP’s **Access Token** field and click **Save Connection Settings**. Reopen the saved connection and check that it says **Outlook / Office365 is connected**.
+
+![FluentSMTP Outlook connected confirmation](/images/outlook-connected.png)
+
+Send a test. If a redirect URI error appears, the URI in Azure does not match the callback on the form.
 
 Tenant notes and permalinks: see the [Entra article](/configure-fluentsmtp-with-microsoft-outlook-office/).

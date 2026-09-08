@@ -12,8 +12,8 @@ Gmail and Workspace are not a marketing ESP. Free Gmail is a few hundred message
 ## Open the Gmail connection
 
 1. Go to **Settings → FluentSMTP**.
-2. If this is the first connection, pick **Google Workspace**.
-3. If you already have a connection, open **Settings**, click **Add Connection**, then pick **Google Workspace**.
+2. If this is the first connection, pick **Gmail or Google Workspace**.
+3. If you already have a connection, open **Settings**, click **Add Connection**, then pick **Gmail or Google Workspace**.
 
 You will fill **Sender Settings** first:
 
@@ -33,33 +33,46 @@ Then the **Gmail / Google Workspace API Settings** block.
 1. Open [Google Cloud Console](https://console.cloud.google.com/) and sign in as the user who owns the mailbox, or as a Workspace admin who can grant Gmail access.
 2. Click the project picker → **New Project**. Name it something like `FluentSMTP` and create it. Select it when it exists.
 
+![Google Cloud New Project form with FluentSMTP Docs as the project name](/images/google-cloud-new-project.png)
+
+The screenshots use a demo project named **FluentSMTP Docs**. Use your own project and mailbox when following these steps.
+
 ## Enable the Gmail API
 
 1. Go to **APIs & Services → Library** (or **Enable APIs and services**).
 2. Search for **Gmail API**.
 3. Open it and click **Enable**.
 
+![Gmail API product page with the Enable button](/images/google-enable-gmail-api.png)
+
 ## OAuth consent screen
 
-1. Go to **APIs & Services → OAuth consent screen**.
-2. If Google asks for user type:
-   - **Internal**: Workspace only, everyone in your org can auth. Prefer this on a company domain.
-   - **External**: personal Gmail, or mixed. You will add test users, or publish the app.
-3. App name: `FluentSMTP` (or your site name).
-4. User support email and developer contact: an address you read.
-5. Save.
+1. Go to **APIs & Services → OAuth consent screen**. This opens **Google Auth Platform**.
+2. Click **Get started** if the project is not configured yet.
+3. Under **App Information**, enter an app name such as `FluentSMTP` and select a **User support email**.
+4. Under **Audience**, choose:
+   - **Internal**: available when the project belongs to a Google Workspace or Cloud Identity organization. Only users in that organization can authenticate.
+   - **External**: use this for a personal Gmail account or users outside your organization. The app starts in Testing.
+5. Under **Contact Information**, enter an email address for Google to send project notices.
+6. Review the **Google API Services: User Data Policy**, accept it if you agree, then click **Continue → Create**.
+
+![Google Auth Platform audience setup with External selected and Internal available only to organization users](/images/google-oauth-audience.png)
 
 ### Testing vs published
 
-If the app stays in **Testing**, only the Google accounts listed as test users can finish OAuth. Add your From address as a test user.
+For an External app in **Testing**, open **Google Auth Platform → Audience → Test users → Add users** and add the Google address you will authenticate with.
 
-If you **Publish** an External app, Google shows an "unverified app" warning. That is expected for a site-specific client. Recipients click **Advanced** → **Go to FluentSMTP (unsafe)** on the consent screen. You do not need Google's full verification to send your own site's mail.
+::: warning Testing connections expire after seven days
+Google issues seven-day refresh tokens for External apps in Testing when Gmail access is requested. If **Publish app** is disabled, follow **Go to Branding** and complete the missing information Google identifies. For ongoing site mail, move the app to **In production** from **Audience → Publish app**, then authenticate FluentSMTP again. Publishing does not make the app verified. See [Google’s audience guidance](https://support.google.com/cloud/answer/15549945?hl=en).
+:::
 
-Workspace Internal apps skip that warning for users in the organization.
+A personal-use app with fewer than 100 users can qualify for Google’s [verification exception](https://support.google.com/cloud/answer/13464323?hl=en). Google may show **Google hasn’t verified this app** during sign-in. For the app you created, check its name, then use **Advanced → Go to [your app name] (unsafe)** if offered. This prompt is shown to the person connecting the mailbox, not to email recipients.
+
+Workspace Internal apps do not require public verification, but your Workspace administrator can still restrict access.
 
 ## Create the OAuth client
 
-1. **APIs & Services → Credentials → Create credentials → OAuth client ID**.
+1. Open **Google Auth Platform → Clients → Create client**. You can also reach this through **APIs & Services → Credentials → Create credentials → OAuth client ID**.
 2. Application type: **Web application**.
 3. Name: `FluentSMTP`.
 4. **Authorized redirect URIs**: add exactly:
@@ -70,7 +83,11 @@ https://fluentsmtp.com/gapi/
 
 That URI is not your site. FluentSMTP uses it as a fixed OAuth bounce so you do not have to expose a callback on every WordPress install. If you skip it, or add a trailing-path variant Google does not treat as the same, authentication is refused.
 
-5. Create. Copy the **Client ID** and **Client secret**.
+Leave **Authorized JavaScript origins** empty. The callback belongs under **Authorized redirect URIs**.
+
+![Google OAuth Web application client with https://fluentsmtp.com/gapi/ in Authorized redirect URIs](/images/google-oauth-redirect-uri.png)
+
+5. Click **Create**. Copy the **Client ID** and **Client secret** and keep them private. Google shows the secret only in the creation dialog; copy it before clicking **OK**.
 
 ## Paste into FluentSMTP and authenticate
 
@@ -80,10 +97,17 @@ Back on the connection form:
 2. Paste **Application Client ID** and **Application Client Secret**.
 3. Confirm **Authorized Redirect URI** still shows `https://fluentsmtp.com/gapi/`.
 4. Click **Authenticate with Google**. A Google window opens.
-5. Pick the same account as **From Email**. Approve access.
+5. Pick the same account as **From Email**. If Google shows a testing notice for the app you created, click **Continue**. Review the **Send email on your behalf** permission, then click **Continue** to approve it.
+
+![Google consent screen requesting permission to send email on your behalf](/images/google-oauth-consent.png)
+
 6. FluentSMTP shows an access token. Paste it into **Access Token** if the form asks, then click **Save Connection Settings**.
 
-When it works, the form says Gmail is connected. Send a test from **Send Test Email**.
+When it works, reopen the saved connection. The form says **Gmail / Google Workspace is connected**.
+
+![FluentSMTP Gmail API settings with the saved secret hidden, redirect URI, and connected confirmation](/images/gmail-connected.png)
+
+Send a test from **Send Test Email**.
 
 If Google shows `redirect_uri_mismatch`, the Cloud client does not have `https://fluentsmtp.com/gapi/` exactly. Edit the client, add it, wait a minute, try again.
 

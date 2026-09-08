@@ -12,7 +12,7 @@ Outlook, Hotmail, and Microsoft 365 are fine for ordinary site mail. They are a 
 ## Open the Outlook connection
 
 1. Go to **Settings → FluentSMTP**.
-2. Pick **Microsoft**, or **Add Connection** then **Microsoft**.
+2. Pick **Outlook or Office 365**, or **Add Connection** then **Outlook or Office 365**.
 
 Fill **Sender Settings**:
 
@@ -44,11 +44,17 @@ Paste whichever one the form shows into Microsoft. Do not invent the pretty URL 
 ## Register the app in Microsoft Entra
 
 1. Sign in at [entra.microsoft.com](https://entra.microsoft.com/).
-2. **Applications → App registrations → New registration**.
+2. **Entra ID → App registrations → New registration** (older layouts use **Applications → App registrations**).
 3. **Name**: `FluentSMTP`.
 4. **Supported account types**: for most sites use **Accounts in any organizational directory (Any Microsoft Entra ID tenant - Multitenant) and personal Microsoft accounts**. If this app is only for one company tenant, pick that single tenant instead and fill **Directory (tenant) ID** later.
 5. **Redirect URI**: platform **Web**, URI = the **App Callback URL** you copied.
-6. **Register**.
+6. Review the Microsoft Platform Policies linked on the form, then click **Register** if you agree.
+
+Use your own app name and the callback copied from your WordPress site. The current account-type dropdown may shorten the option to **Any Entra ID Tenant + Personal Microsoft accounts**.
+
+![Microsoft Entra registration form with organizational and personal accounts and a Web redirect URI](/images/microsoft-entra-register-app.png)
+
+The screenshot uses the local demo address `smtp.lab`. Use the callback from your own WordPress site.
 
 On the Overview page, copy **Application (client) ID**. That is **Application Client ID** in FluentSMTP.
 
@@ -58,6 +64,8 @@ On the Overview page, copy **Application (client) ID**. That is **Application Cl
 2. Add a description and an expiry you will remember (or the longest you are allowed).
 3. **Add**. Copy **Value** immediately. Microsoft will not show it again. The Secret ID is not the secret.
 
+![Microsoft Entra Certificates & secrets page with the Add a client secret panel, description, and expiry](/images/microsoft-entra-client-secret.png)
+
 When the secret expires, mail stops until you create a new secret, paste it, and authenticate again.
 
 ## Fill FluentSMTP and authenticate
@@ -66,8 +74,14 @@ When the secret expires, mail stops until you create a new secret, paste it, and
 2. **Application Client ID**: the client ID.
 3. **Application Client Secret**: the secret **Value**.
 4. **Directory (tenant) ID (Optional)**: leave empty (placeholder `common`) unless the Entra app is single-tenant. For a single-tenant app, paste the Directory (tenant) ID from Overview, or a verified domain such as `contoso.onmicrosoft.com`. Use `organizations` if work/school accounts only, or `consumers` if the registration only allows personal Microsoft accounts. Changing tenant after a successful auth means you must authenticate again.
-5. Click **Authenticate with Office365**. Approve the Microsoft prompt.
-6. Paste the access token if the form asks, then **Save Connection Settings**.
+5. Click **Authenticate with Office365**. Sign in with the mailbox you want to use. Check the app name and requested permissions, then click **Accept**. The prompt requests permission to send mail and maintain access between sessions.
+
+![Microsoft consent prompt for FluentSMTP Docs showing Send mail as you and Maintain access permissions](/images/microsoft-oauth-consent.png)
+
+6. The callback opens **Your Access Code**. Copy the code into FluentSMTP’s **Access Token** field, then click **Save Connection Settings**. Keep this code private.
+7. Reopen the saved connection to confirm **Outlook / Office365 is connected**.
+
+![FluentSMTP Outlook callback URL and connected confirmation](/images/outlook-connected.png)
 
 Send a test from **Send Test Email**.
 
