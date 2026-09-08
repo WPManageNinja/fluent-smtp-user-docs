@@ -131,7 +131,7 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .site-header { position: relative; z-index: 50; flex-shrink: 0; height: 80px; border-bottom: 1px solid var(--vp-c-divider); background: var(--site-header-bg); color: var(--site-header-text); font-family: Inter, var(--vp-font-family-base), sans-serif; }
-.site-header-inner { height: 100%; max-width: 1280px; padding: 0 39px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.site-header-inner { height: 100%; max-width: var(--site-header-inner-width); padding: 0 var(--site-header-gutter); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .site-brand { flex: 0 0 200px; }
 .site-brand img { width: 200px; height: auto; display: block; }
 ul { list-style: none; margin: 0; padding: 0; }
@@ -172,8 +172,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid #c716c1; outline-offs
 @media (max-width: 1199px) {
   .site-navigation, .site-download { display: none; }
   .mobile-toggle { display: flex; }
-  .site-header-inner { padding: 0 24px; }
 }
-@media (max-width: 767px) { .site-header-inner { padding: 0 16px; } }
+
 @media (prefers-reduced-motion: reduce) { a, button { transition: none; } }
 </style>

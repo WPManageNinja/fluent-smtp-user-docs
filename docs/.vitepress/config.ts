@@ -32,9 +32,43 @@ export default defineConfig({
     }
   },
   head: [
-    ['link', { rel: 'icon', href: '/docs/logo.svg' }],
+    ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/docs/favicon-32x32.png' }],
+    ['link', { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/docs/favicon-192x192.png' }],
+    ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/docs/apple-touch-icon.png' }],
+    ['link', { rel: 'sitemap', type: 'application/xml', href: '/docs/sitemap.xml' }],
+    ['link', { rel: 'alternate', type: 'text/plain', href: '/docs/llms.txt', title: 'Documentation index for AI readers' }],
     ['meta', { name: 'theme-color', content: '#c716c1' }]
   ],
+  transformHead({ pageData }) {
+    if (pageData.relativePath === '404.md') {
+      return [['meta', { name: 'robots', content: 'noindex' }]]
+    }
+    const path = pageData.relativePath.replace(/index\.md$/, '').replace(/\.md$/, '/')
+    const canonical = `https://fluentsmtp.com/docs/${path}`
+    const title = `${pageData.title} | FluentSMTP`
+    const description = pageData.description
+    return [
+      ['link', { rel: 'canonical', href: canonical }],
+      ['link', { rel: 'alternate', type: 'text/markdown', href: `${canonical}index.md`, title: 'Read as Markdown' }],
+      ['meta', { property: 'og:type', content: path ? 'article' : 'website' }],
+      ['meta', { property: 'og:site_name', content: 'FluentSMTP Documentation' }],
+      ['meta', { property: 'og:title', content: title }],
+      ['meta', { property: 'og:description', content: description }],
+      ['meta', { property: 'og:url', content: canonical }],
+      ['meta', { property: 'og:image', content: 'https://fluentsmtp.com/docs/favicon-192x192.png' }],
+      ['meta', { name: 'twitter:card', content: 'summary' }],
+      ['script', { type: 'application/ld+json' }, JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': path ? 'TechArticle' : 'CollectionPage',
+        headline: pageData.title,
+        description,
+        url: canonical,
+        inLanguage: 'en-US',
+        ...(pageData.lastUpdated ? { dateModified: new Date(pageData.lastUpdated).toISOString() } : {}),
+        publisher: { '@type': 'Organization', name: 'WPManageNinja', url: 'https://wpmanageninja.com/' }
+      }).replace(/</g, '\\u003c')]
+    ]
+  },
   themeConfig: {
     siteTitle: 'Documentation',
     search: {

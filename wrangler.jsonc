@@ -8,7 +8,7 @@
     "binding": "ASSETS",
     "html_handling": "force-trailing-slash",
     "not_found_handling": "404-page",
-    "run_worker_first": ["/docs-category/*"]
+    "run_worker_first": ["/docs", "/docs/*", "/docs-category", "/docs-category/*"]
   },
   "observability": {
     "enabled": true

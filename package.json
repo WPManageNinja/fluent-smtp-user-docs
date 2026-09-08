@@ -6,12 +6,16 @@
   "type": "module",
   "scripts": {
     "dev": "vitepress dev docs",
-    "build": "vitepress build docs && node scripts/prepare-worker-assets.mjs",
+    "build": "vitepress build docs && node scripts/generate-ai-assets.mjs && node scripts/prepare-worker-assets.mjs",
     "preview": "vitepress preview docs",
     "types": "wrangler types --include-runtime=false",
-    "deploy": "npm run build && wrangler deploy"
+    "deploy": "npm run build && wrangler deploy",
+    "check": "tsc --noEmit && node scripts/check-discovery.mjs"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260908.1",
+    "gray-matter": "^4.0.3",
+    "typescript": "^7.0.2",
     "vitepress": "^1.6.4",
     "vue": "^3.5.42",
     "wrangler": "^4.129.1"

@@ -52,8 +52,8 @@
 :root {
   --vp-layout-top-height: 0px;
   --site-header-visible: 80px;
-  --site-header-inner-width: 1280px;
-  --site-header-gutter: 39px;
+  --site-header-inner-width: var(--vp-layout-max-width);
+  --site-header-gutter: 32px;
   --vp-nav-height: 56px;
 }
 .VPNavBar .title { font-size: 14px; }
@@ -108,11 +108,8 @@
 @media (min-width: 960px) {
   .Layout .VPSidebar { top: var(--site-header-visible) !important; }
 }
-@media (max-width: 1199px) {
+@media (max-width: 639px) {
   :root { --site-header-gutter: 24px; }
-}
-@media (max-width: 767px) {
-  :root { --site-header-gutter: 16px; }
 }
 
 :root {
