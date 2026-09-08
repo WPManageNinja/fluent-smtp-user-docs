@@ -1,5 +1,13 @@
 import sidebar from './sidebar.mjs'
 import { defineConfig } from 'vitepress'
+import featureImages from './feature-images.json'
+
+function featureImageFor(relativePath: string) {
+  const slug = relativePath.replace(/\/index\.md$/, '').replace(/\.md$/, '')
+  const image = featureImages.find(image => image.slug === slug)
+  if (!image && relativePath !== '404.md') throw new Error(`Missing feature image: ${relativePath}`)
+  return image
+}
 
 export default defineConfig({
   lang: 'en-US',
@@ -40,6 +48,13 @@ export default defineConfig({
     ['link', { rel: 'alternate', type: 'text/plain', href: '/docs/llms.txt', title: 'Documentation index for AI readers' }],
     ['meta', { name: 'theme-color', content: '#c716c1' }]
   ],
+  transformPageData(pageData) {
+    const image = featureImageFor(pageData.relativePath)
+    if (image) {
+      pageData.frontmatter.image = image.image
+      pageData.frontmatter.imageAlt = image.alt
+    }
+  },
   transformHead({ pageData }) {
     if (pageData.relativePath === '404.md') {
       return [['meta', { name: 'robots', content: 'noindex' }]]
@@ -48,6 +63,8 @@ export default defineConfig({
     const canonical = `https://fluentsmtp.com/docs/${path}`
     const title = `${pageData.title} | FluentSMTP`
     const description = pageData.description
+    const feature = featureImageFor(pageData.relativePath)!
+    const image = `https://fluentsmtp.com/docs${feature.image}`
     return [
       ['link', { rel: 'canonical', href: canonical }],
       ['link', { rel: 'alternate', type: 'text/markdown', href: `${canonical}index.md`, title: 'Read as Markdown' }],
@@ -56,14 +73,23 @@ export default defineConfig({
       ['meta', { property: 'og:title', content: title }],
       ['meta', { property: 'og:description', content: description }],
       ['meta', { property: 'og:url', content: canonical }],
-      ['meta', { property: 'og:image', content: 'https://fluentsmtp.com/docs/favicon-192x192.png' }],
-      ['meta', { name: 'twitter:card', content: 'summary' }],
+      ['meta', { property: 'og:image', content: image }],
+      ['meta', { property: 'og:image:type', content: 'image/jpeg' }],
+      ['meta', { property: 'og:image:width', content: '1200' }],
+      ['meta', { property: 'og:image:height', content: '630' }],
+      ['meta', { property: 'og:image:alt', content: feature.alt }],
+      ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+      ['meta', { name: 'twitter:title', content: title }],
+      ['meta', { name: 'twitter:description', content: description }],
+      ['meta', { name: 'twitter:image', content: image }],
+      ['meta', { name: 'twitter:image:alt', content: feature.alt }],
       ['script', { type: 'application/ld+json' }, JSON.stringify({
         '@context': 'https://schema.org',
         '@type': path ? 'TechArticle' : 'CollectionPage',
         headline: pageData.title,
         description,
         url: canonical,
+        image: { '@type': 'ImageObject', url: image, width: 1200, height: 630 },
         inLanguage: 'en-US',
         ...(pageData.lastUpdated ? { dateModified: new Date(pageData.lastUpdated).toISOString() } : {}),
         publisher: { '@type': 'Organization', name: 'WPManageNinja', url: 'https://wpmanageninja.com/' }

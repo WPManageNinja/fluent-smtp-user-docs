@@ -1,0 +1,254 @@
+[
+  {
+    "slug": "index",
+    "eyebrow": "DOCUMENTATION",
+    "title": "WordPress email,\nmade simple.",
+    "subtitle": "Your guide to FluentSMTP.",
+    "art": "An open guidebook with an envelope emerging from its pages, tiny purple checkmark, pale lilac circle.",
+    "image": "/og/index.jpg",
+    "alt": "WordPress email, made simple. Your guide to FluentSMTP."
+  },
+  {
+    "slug": "installing-fluent-smtp",
+    "eyebrow": "GETTING STARTED",
+    "title": "Start with\nFluentSMTP.",
+    "subtitle": "Install, activate, and get connected.",
+    "art": "A minimal plugin puzzle piece fitting into a rounded WordPress-style window, small download arrow and envelope.",
+    "image": "/og/installing-fluent-smtp.jpg",
+    "alt": "Start with FluentSMTP. Install, activate, and get connected."
+  },
+  {
+    "slug": "introduction-to-fluent-smtp-dashboard",
+    "eyebrow": "DASHBOARD GUIDE",
+    "title": "Your email,\nat a glance.",
+    "subtitle": "Understand your sending activity.",
+    "art": "Approved existing dashboard artwork.",
+    "image": "/og/introduction-to-fluent-smtp-dashboard.jpg",
+    "alt": "Your email, at a glance. Understand your sending activity."
+  },
+  {
+    "slug": "configurable-email-delivery-providers",
+    "eyebrow": "PROVIDER GUIDE",
+    "title": "Find your\nemail service.",
+    "subtitle": "Choose a provider that fits your site.",
+    "art": "Three elegant connected nodes with a cloud, envelope and server, a small selection checkmark; no fake logos.",
+    "image": "/og/configurable-email-delivery-providers.jpg",
+    "alt": "Find your email service. Choose a provider that fits your site."
+  },
+  {
+    "slug": "fluent-smtp-settings",
+    "eyebrow": "SETTINGS GUIDE",
+    "title": "Your email.\nYour settings.",
+    "subtitle": "Manage connections and sending options.",
+    "art": "Three precise horizontal settings sliders within one panel and a small envelope overlapping its corner.",
+    "image": "/og/fluent-smtp-settings.jpg",
+    "alt": "Your email. Your settings. Manage connections and sending options."
+  },
+  {
+    "slug": "using-multiple-smtp-drivers-with-fluent-smtp",
+    "eyebrow": "EMAIL ROUTING",
+    "title": "The right route\nfor every email.",
+    "subtitle": "Manage multiple sending connections.",
+    "art": "A single envelope at left branches into three clean purple paths ending in small cloud nodes, one dotted fallback path.",
+    "image": "/og/using-multiple-smtp-drivers-with-fluent-smtp.jpg",
+    "alt": "The right route for every email. Manage multiple sending connections."
+  },
+  {
+    "slug": "fluentsmtp-email-logs-feature",
+    "eyebrow": "EMAIL LOGS",
+    "title": "Every email,\nin view.",
+    "subtitle": "Search, inspect, and resend messages.",
+    "art": "A clean log list panel with three rows, status dots and a magnifying glass focusing on an envelope.",
+    "image": "/og/fluentsmtp-email-logs-feature.jpg",
+    "alt": "Every email, in view. Search, inspect, and resend messages."
+  },
+  {
+    "slug": "cpanel-smtp-credentials",
+    "eyebrow": "CPANEL GUIDE",
+    "title": "Find your\nSMTP details.",
+    "subtitle": "Get your mailbox ready to connect.",
+    "art": "A simple server panel, an envelope and a purple key. No passwords or credential strings.",
+    "image": "/og/cpanel-smtp-credentials.jpg",
+    "alt": "Find your SMTP details. Get your mailbox ready to connect."
+  },
+  {
+    "slug": "set-up-fluent-smtp-with-any-host-or-mailer",
+    "eyebrow": "SMTP CONNECTION",
+    "title": "Connect your\nSMTP server.",
+    "subtitle": "Use the email host you already have.",
+    "art": "A sleek small server tower linked by a curved purple line to an envelope with a checkmark.",
+    "image": "/og/set-up-fluent-smtp-with-any-host-or-mailer.jpg",
+    "alt": "Connect your SMTP server. Use the email host you already have."
+  },
+  {
+    "slug": "alerts-email-summary",
+    "eyebrow": "EMAIL SUMMARY",
+    "title": "Your sending,\nsummarized.",
+    "subtitle": "Choose when your email report arrives.",
+    "art": "One elegant report sheet with a small purple bar chart, calendar date dots and an overlapping envelope.",
+    "image": "/og/alerts-email-summary.jpg",
+    "alt": "Your sending, summarized. Choose when your email report arrives."
+  },
+  {
+    "slug": "set-up-tosend-in-fluent-smtp",
+    "eyebrow": "CONNECTION GUIDE",
+    "title": "Connect\ntoSend.",
+    "subtitle": "Set up your sending domain and API key.",
+    "art": "A minimal paper plane flying from a verified domain tile toward an envelope, thin purple path.",
+    "image": "/og/set-up-tosend-in-fluent-smtp.jpg",
+    "alt": "Connect toSend. Set up your sending domain and API key."
+  },
+  {
+    "slug": "set-up-amazon-ses-in-fluent-smtp",
+    "eyebrow": "CONNECTION GUIDE",
+    "title": "Connect\nAmazon SES.",
+    "subtitle": "Bring AWS email sending to WordPress.",
+    "art": "A cloud outline above an envelope, linked to a small verified domain tile, one subtle warm amber accent.",
+    "image": "/og/set-up-amazon-ses-in-fluent-smtp.jpg",
+    "alt": "Connect Amazon SES. Bring AWS email sending to WordPress."
+  },
+  {
+    "slug": "connect-gmail-or-google-workspace-emails-with-fluentsmtp",
+    "eyebrow": "CONNECTION GUIDE",
+    "title": "Connect\nGmail.",
+    "subtitle": "Use Gmail or Google Workspace.",
+    "art": "A minimal envelope with a tiny tasteful four-color corner accent, a purple authorization link and checkmark.",
+    "image": "/og/connect-gmail-or-google-workspace-emails-with-fluentsmtp.jpg",
+    "alt": "Connect Gmail. Use Gmail or Google Workspace."
+  },
+  {
+    "slug": "configure-fluentsmtp-with-microsoft-outlook-office",
+    "eyebrow": "CONNECTION GUIDE",
+    "title": "Connect\nOutlook.",
+    "subtitle": "Set up Outlook or Microsoft 365.",
+    "art": "An elegant blue-accented inbox envelope beside a purple linked authorization symbol, pale lilac circle.",
+    "image": "/og/configure-fluentsmtp-with-microsoft-outlook-office.jpg",
+    "alt": "Connect Outlook. Set up Outlook or Microsoft 365."
+  },
+  {
+    "slug": "setup-outlook-with-fluentsmtp",
+    "eyebrow": "AZURE SETUP",
+    "title": "Outlook,\nvia Azure.",
+    "subtitle": "Register your app and connect your email.",
+    "art": "A simple cloud containing a small app tile, connected to an envelope by a purple line; one subtle blue accent.",
+    "image": "/og/setup-outlook-with-fluentsmtp.jpg",
+    "alt": "Outlook, via Azure. Register your app and connect your email."
+  },
+  {
+    "slug": "configure-cloudflare-email-in-fluent-smtp",
+    "eyebrow": "CONNECTION GUIDE",
+    "title": "Connect\nCloudflare Email.",
+    "subtitle": "Set up your domain for email sending.",
+    "art": "An orange-accented minimal cloud above a purple-outlined envelope and a small verified domain checkmark.",
+    "image": "/og/configure-cloudflare-email-in-fluent-smtp.jpg",
+    "alt": "Connect Cloudflare Email. Set up your domain for email sending."
+  },
+  {
+    "slug": "configure-mailgun-in-fluent-smtp-to-send-emails",
+    "eyebrow": "CONNECTION GUIDE",
+    "title": "Connect\nMailgun.",
+    "subtitle": "Send through your verified domain.",
+    "art": "A purple envelope passing through a clean circular delivery path beside a small red-accented domain tile.",
+    "image": "/og/configure-mailgun-in-fluent-smtp-to-send-emails.jpg",
+    "alt": "Connect Mailgun. Send through your verified domain."
+  },
+  {
+    "slug": "set-up-the-sendgrid-driver-in-fluent-smtp",
+    "eyebrow": "CONNECTION GUIDE",
+    "title": "Connect\nSendGrid.",
+    "subtitle": "Set up API-powered email sending.",
+    "art": "A precise small grid of pale blue and purple squares that connects by a thin path to a white envelope.",
+    "image": "/og/set-up-the-sendgrid-driver-in-fluent-smtp.jpg",
+    "alt": "Connect SendGrid. Set up API-powered email sending."
+  },
+  {
+    "slug": "setting-up-sendinblue-mailer-in-fluent-smtp",
+    "eyebrow": "CONNECTION GUIDE",
+    "title": "Connect\nBrevo.",
+    "subtitle": "Link your email service with an API key.",
+    "art": "A clean envelope and a small purple key in front of one pale green accented rounded panel.",
+    "image": "/og/setting-up-sendinblue-mailer-in-fluent-smtp.jpg",
+    "alt": "Connect Brevo. Link your email service with an API key."
+  },
+  {
+    "slug": "configure-postmark-in-fluent-smtp-to-send-emails",
+    "eyebrow": "CONNECTION GUIDE",
+    "title": "Connect\nPostmark.",
+    "subtitle": "Choose your message stream and start.",
+    "art": "A minimal envelope with a tasteful yellow-accented postage stamp, two fine purple lines representing a message stream.",
+    "image": "/og/configure-postmark-in-fluent-smtp-to-send-emails.jpg",
+    "alt": "Connect Postmark. Choose your message stream and start."
+  },
+  {
+    "slug": "configure-smtp2go-in-fluentsmtp-to-send-emails",
+    "eyebrow": "CONNECTION GUIDE",
+    "title": "Connect\nSMTP2GO.",
+    "subtitle": "Set up your API email connection.",
+    "art": "An envelope moving along a clean purple arrow with two subtle blue speed strokes, one verified checkmark.",
+    "image": "/og/configure-smtp2go-in-fluentsmtp-to-send-emails.jpg",
+    "alt": "Connect SMTP2GO. Set up your API email connection."
+  },
+  {
+    "slug": "configure-sparkpost-in-fluent-smtp-to-send-emails",
+    "eyebrow": "CONNECTION GUIDE",
+    "title": "Connect\nSparkPost.",
+    "subtitle": "Add your API key and connect your site.",
+    "art": "A simple purple-outlined envelope with one tiny orange spark above it and a small connection-link motif.",
+    "image": "/og/configure-sparkpost-in-fluent-smtp-to-send-emails.jpg",
+    "alt": "Connect SparkPost. Add your API key and connect your site."
+  },
+  {
+    "slug": "configure-elastic-email-in-fluent-smtp",
+    "eyebrow": "CONNECTION GUIDE",
+    "title": "Connect\nElastic Email.",
+    "subtitle": "Choose how your site sends email.",
+    "art": "Two elegantly looping purple paths joining an envelope and a small server tile, restrained lilac backdrop.",
+    "image": "/og/configure-elastic-email-in-fluent-smtp.jpg",
+    "alt": "Connect Elastic Email. Choose how your site sends email."
+  },
+  {
+    "slug": "set-up-the-pepipost-mailer-in-fluent-smtp",
+    "eyebrow": "CONNECTION GUIDE",
+    "title": "Connect\nNetcore.",
+    "subtitle": "Set up your Email API connection.",
+    "art": "An envelope at the center of a small orbital network of four purple nodes, one tiny orange accent.",
+    "image": "/og/set-up-the-pepipost-mailer-in-fluent-smtp.jpg",
+    "alt": "Connect Netcore. Set up your Email API connection."
+  },
+  {
+    "slug": "email-sending-error-notification-telegram",
+    "eyebrow": "TELEGRAM ALERTS",
+    "title": "Email alerts,\nin Telegram.",
+    "subtitle": "Know when a message fails to send.",
+    "art": "A minimal chat bubble with a white paper plane, a small envelope and a restrained alert dot, purple with tiny blue accent.",
+    "image": "/og/email-sending-error-notification-telegram.jpg",
+    "alt": "Email alerts, in Telegram. Know when a message fails to send."
+  },
+  {
+    "slug": "email-sending-error-notification-slack",
+    "eyebrow": "SLACK ALERTS",
+    "title": "Email alerts,\nin Slack.",
+    "subtitle": "Bring sending failures to your channel.",
+    "art": "One minimal chat channel panel with a purple envelope notification and tiny colored status dots, no invented text.",
+    "image": "/og/email-sending-error-notification-slack.jpg",
+    "alt": "Email alerts, in Slack. Bring sending failures to your channel."
+  },
+  {
+    "slug": "email-sending-error-notification-discord",
+    "eyebrow": "DISCORD ALERTS",
+    "title": "Email alerts,\nin Discord.",
+    "subtitle": "Send failure notices to your channel.",
+    "art": "A clean lavender chat bubble containing a channel hash symbol beside a white envelope with one alert dot.",
+    "image": "/og/email-sending-error-notification-discord.jpg",
+    "alt": "Email alerts, in Discord. Send failure notices to your channel."
+  },
+  {
+    "slug": "email-sending-error-notification-pushover",
+    "eyebrow": "PUSHOVER ALERTS",
+    "title": "Email alerts,\non your phone.",
+    "subtitle": "Get sending failures through Pushover.",
+    "art": "One minimal outlined smartphone showing an envelope notification and a small purple bell beside it.",
+    "image": "/og/email-sending-error-notification-pushover.jpg",
+    "alt": "Email alerts, on your phone. Get sending failures through Pushover."
+  }
+]

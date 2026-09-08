@@ -4,13 +4,14 @@ import type { Theme } from 'vitepress'
 import DocsHome from './components/DocsHome.vue'
 import SiteHeader from './components/SiteHeader.vue'
 import MarkdownLink from './components/MarkdownLink.vue'
+import FeatureImage from './components/FeatureImage.vue'
 import './custom.css'
 
 export default {
   extends: DefaultTheme,
   Layout: () => h(DefaultTheme.Layout, null, {
     'layout-top': () => h(SiteHeader),
-    'doc-before': () => h(MarkdownLink),
+    'doc-before': () => [h(FeatureImage), h(MarkdownLink)],
     'home-hero-before': () => h(DocsHome)
   })
 } satisfies Theme

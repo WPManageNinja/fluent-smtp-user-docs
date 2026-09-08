@@ -1,0 +1,170 @@
+[
+  {
+    "file" : "alerts-email-summary.jpg",
+    "height" : 630,
+    "text" : "fluentSMTP\nEMAIL SUMMARY\nYour sending,\nsummarized.\nChoose when your email report arrives.\nDocumentation",
+    "width" : 1200
+  },
+  {
+    "file" : "configurable-email-delivery-providers.jpg",
+    "height" : 630,
+    "text" : "fluentSMTP\nPROVIDER GUIDE\nFind your\nemail service.\nChoose a provider that fits your site.\nDocumentation",
+    "width" : 1200
+  },
+  {
+    "file" : "configure-cloudflare-email-in-fluent-smtp.jpg",
+    "height" : 630,
+    "text" : "fluentSMTP\nCONNECTION GUIDE\nConnect\nCloudflare Email.\nSet up your domain for email sending.\nDocumentation",
+    "width" : 1200
+  },
+  {
+    "file" : "configure-elastic-email-in-fluent-smtp.jpg",
+    "height" : 630,
+    "text" : "fluentSMTP\nCONNECTION GUIDE\nConnect\nElastic Email.\nChoose how your site sends email.\nDocumentation",
+    "width" : 1200
+  },
+  {
+    "file" : "configure-fluentsmtp-with-microsoft-outlook-office.jpg",
+    "height" : 630,
+    "text" : "fluentSMTP\nCONNECTION GUIDE\nConnect\nOutlook.\nSet up Outlook or Microsoft 365.\nDocumentation",
+    "width" : 1200
+  },
+  {
+    "file" : "configure-mailgun-in-fluent-smtp-to-send-emails.jpg",
+    "height" : 630,
+    "text" : "fluentSMTP\nCONNECTION GUIDE\nConnect\nMailgun.\nSend through your verified domain.\nDocumentation\nyourdomain.com",
+    "width" : 1200
+  },
+  {
+    "file" : "configure-postmark-in-fluent-smtp-to-send-emails.jpg",
+    "height" : 630,
+    "text" : "fluentSMTP\nCONNECTION GUIDE\nConnect\nPostmark.\nChoose your message stream and start.\nDocumentation\nP",
+    "width" : 1200
+  },
+  {
+    "file" : "configure-smtp2go-in-fluentsmtp-to-send-emails.jpg",
+    "height" : 630,
+    "text" : "fluentSMTP\nCONNECTION GUIDE\nConnect\nSMTP2GO.\nSet up your API email connection.\nDocumentation",
+    "width" : 1200
+  },
+  {
+    "file" : "configure-sparkpost-in-fluent-smtp-to-send-emails.jpg",
+    "height" : 630,
+    "text" : "fluentSMTP\nCONNECTION GUIDE\nConnect\nSparkPost.\nAdd your API key and connect your site.\nDocumentation",
+    "width" : 1200
+  },
+  {
+    "file" : "connect-gmail-or-google-workspace-emails-with-fluentsmtp.jpg",
+    "height" : 630,
+    "text" : "fluentSMTP\nCONNECTION GUIDE\nConnect\nGmail.\nUse Gmail or Google Workspace.\nDocumentation",
+    "width" : 1200
+  },
+  {
+    "file" : "cpanel-smtp-credentials.jpg",
+    "height" : 630,
+    "text" : "fluentSMTP\nCPANEL GUIDE\nFind your\nSMTP details.\nGet your mailbox ready to connect.\nDocumentation",
+    "width" : 1200
+  },
+  {
+    "file" : "email-sending-error-notification-discord.jpg",
+    "height" : 630,
+    "text" : "fluentSMTP\nDISCORD ALERTS\nEmail alerts,\nin Discord.\nSend failure notices to your channel.\nDocumentation",
+    "width" : 1200
+  },
+  {
+    "file" : "email-sending-error-notification-pushover.jpg",
+    "height" : 630,
+    "text" : "fluentSMTP\nPUSHOVER ALERTS\nEmail alerts,\non your phone.\nGet sending failures through Pushover.\nDocumentation",
+    "width" : 1200
+  },
+  {
+    "file" : "email-sending-error-notification-slack.jpg",
+    "height" : 630,
+    "text" : "fluentSMTP\nSLACK ALERTS\nEmail alerts,\nin Slack.\nBring sending failures to your channel.\nDocumentation",
+    "width" : 1200
+  },
+  {
+    "file" : "email-sending-error-notification-telegram.jpg",
+    "height" : 630,
+    "text" : "fluentSMTP\nTELEGRAM ALERTS\nEmail alerts,\nin Telegram.\nKnow when a message fails to send.\nDocumentation",
+    "width" : 1200
+  },
+  {
+    "file" : "fluent-smtp-settings.jpg",
+    "height" : 630,
+    "text" : "fluentSMTP\nSETTINGS GUIDE\nYour email.\nYour settings.\nManage connections and sending options.\nDocumentation",
+    "width" : 1200
+  },
+  {
+    "file" : "fluentsmtp-email-logs-feature.jpg",
+    "height" : 630,
+    "text" : "fluentSMTP\nEMAIL LOGS\nEvery email,\nin view.\nSearch, inspect, and resend messages.\nDocumentation",
+    "width" : 1200
+  },
+  {
+    "file" : "index.jpg",
+    "height" : 630,
+    "text" : "fluentSMTP\nDOCUMENTATION\nWordPress emall,\nmade simple.\nYour guide to FluentSMTP.\nDocumentation",
+    "width" : 1200
+  },
+  {
+    "file" : "installing-fluent-smtp.jpg",
+    "height" : 630,
+    "text" : "fluentSMTP\nGETTING STARTED\nStart with\nFluentSMTP.\nInstall, activate, and get connected.\nDocumentation",
+    "width" : 1200
+  },
+  {
+    "file" : "introduction-to-fluent-smtp-dashboard.jpg",
+    "height" : 630,
+    "text" : "fluentSMTP\nDASHBOARD GUIDE\nYour email,\nat a glance.\nUnderstand your sending activity.\nDocumentation",
+    "width" : 1200
+  },
+  {
+    "file" : "set-up-amazon-ses-in-fluent-smtp.jpg",
+    "height" : 630,
+    "text" : "fluentSMTP\nCONNECTION GUIDE\nConnect\nAmazon SES.\nBring AWS email sending to WordPress.\nDocumentation",
+    "width" : 1200
+  },
+  {
+    "file" : "set-up-fluent-smtp-with-any-host-or-mailer.jpg",
+    "height" : 630,
+    "text" : "fluentSMTP\nSMTP CONNECTION\nConnect your\nSMTP server.\nUse the email host you already have.\nDocumentation",
+    "width" : 1200
+  },
+  {
+    "file" : "set-up-the-pepipost-mailer-in-fluent-smtp.jpg",
+    "height" : 630,
+    "text" : "fluentSMTP\nCONNECTION GUIDE\nConnect\nNetcore.\nSet up your Email API connection.\nDocumentation",
+    "width" : 1200
+  },
+  {
+    "file" : "set-up-the-sendgrid-driver-in-fluent-smtp.jpg",
+    "height" : 630,
+    "text" : "fluentSMTP\nCONNECTION GUIDE\nConnect\nSendGrid.\nSet up API-powered email sending.\nDocumentation",
+    "width" : 1200
+  },
+  {
+    "file" : "set-up-tosend-in-fluent-smtp.jpg",
+    "height" : 630,
+    "text" : "fluentSMTP\nCONNECTION GUIDE\nConnect\ntoSend.\nSet up your sending domain and API key.\nDocumentation",
+    "width" : 1200
+  },
+  {
+    "file" : "setting-up-sendinblue-mailer-in-fluent-smtp.jpg",
+    "height" : 630,
+    "text" : "fluentSMTP\nCONNECTION GUIDE\nConnect\nBrevo.\nLink your email service with an API key.\nDocumentation",
+    "width" : 1200
+  },
+  {
+    "file" : "setup-outlook-with-fluentsmtp.jpg",
+    "height" : 630,
+    "text" : "fluentSMTP\nAZURE SETUP\nOutlook,\nvia Azure.\nRegister your app and connect your email.\nDocumentation\nA",
+    "width" : 1200
+  },
+  {
+    "file" : "using-multiple-smtp-drivers-with-fluent-smtp.jpg",
+    "height" : 630,
+    "text" : "fluentSMTP\nEMAIL ROUTING\nThe right route\nfor every email.\nManage multiple sending connections.\nDocumentation",
+    "width" : 1200
+  }
+]
