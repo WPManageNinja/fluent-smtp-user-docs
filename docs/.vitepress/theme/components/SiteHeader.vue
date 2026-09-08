@@ -15,6 +15,7 @@ const mobileOpen = ref(false)
 const pluginsOpen = ref(false)
 const download = 'https://wordpress.org/plugins/fluent-smtp/'
 const article = 'https://fluentsmtp.com/articles/wordpress-email-settings-smtp-configuration/'
+// Explicit targets let main-site links bypass VitePress same-origin routing.
 const href = (url: string) => url === '/docs/' ? withBase('/') : url
 const mobileLinks = [
   ['Getting Started', 'https://fluentsmtp.com/getting-started/'],
@@ -74,32 +75,32 @@ onBeforeUnmount(() => {
 <template>
   <header ref="header" class="site-header" aria-label="FluentSMTP website">
     <div class="site-header-inner">
-      <a class="site-brand" href="https://fluentsmtp.com/" aria-label="FluentSMTP home">
+      <a target="_self" class="site-brand" href="https://fluentsmtp.com/" aria-label="FluentSMTP home">
         <img :src="withBase('/header/logo.png')" alt="FluentSMTP" width="200" height="30">
       </a>
       <nav class="site-navigation" aria-label="Main website navigation">
         <ul class="site-menu">
-          <li><a href="https://fluentsmtp.com/why-fluentsmtp/">Why FluentSMTP?</a></li>
-          <li><a href="https://fluentsmtp.com/features/">Features</a></li>
+          <li><a target="_self" href="https://fluentsmtp.com/why-fluentsmtp/">Why FluentSMTP?</a></li>
+          <li><a target="_self" href="https://fluentsmtp.com/features/">Features</a></li>
           <li v-for="(group, index) in groups" :key="group.label" class="has-dropdown"
             @pointerenter="(event) => { if (event.pointerType === 'mouse') hoveredGroup = group.label }"
             @pointerleave="closeGroups" @focusout="onFocusOut">
             <div class="menu-trigger">
-              <a v-if="group.href" :href="group.href">{{ group.label }}</a>
+              <a target="_self" v-if="group.href" :href="group.href">{{ group.label }}</a>
               <button v-else class="menu-label" :data-group="group.label" :aria-expanded="activeGroup === group.label" :aria-controls="`site-menu-${index}`" @click="toggleGroup(group.label)">{{ group.label }}<span class="chevron" aria-hidden="true"></span></button>
               <button v-if="group.href" class="submenu-toggle" :data-group="group.label" :aria-label="`Toggle ${group.label} menu`" :aria-expanded="activeGroup === group.label" :aria-controls="`site-menu-${index}`" @click="toggleGroup(group.label)"><span class="chevron" aria-hidden="true"></span></button>
             </div>
             <div v-show="activeGroup === group.label" :id="`site-menu-${index}`" class="site-dropdown" :class="{ 'resources-dropdown': group.label === 'Resources', 'compare-dropdown': group.label === 'Compare' }">
               <ul class="dropdown-links" :class="{ 'single-column': group.label === 'Resources' }">
                 <li v-for="item in group.items" :key="item.href">
-                  <a :href="href(item.href)" :aria-current="item.href === '/docs/' ? 'location' : undefined" @click="closeGroups">
+                  <a :target="item.href === '/docs/' ? undefined : '_self'" :href="href(item.href)" :aria-current="item.href === '/docs/' ? 'location' : undefined" @click="closeGroups">
                     <img v-if="'image' in item" :src="withBase(item.image)" alt="" width="32" height="32" loading="lazy">
                     <svg v-else width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>
                     <span>{{ item.label }}</span>
                   </a>
                 </li>
               </ul>
-              <a v-if="group.label === 'Resources'" class="resource-article" :href="article">
+              <a target="_self" v-if="group.label === 'Resources'" class="resource-article" :href="article">
                 <img :src="withBase('/header/resource-article.png')" alt="" width="308" height="161" loading="lazy">
                 <span>A Complete Guide to WordPress Email Settings and SMTP Configuration</span>
               </a>
@@ -107,7 +108,7 @@ onBeforeUnmount(() => {
           </li>
         </ul>
       </nav>
-      <a class="site-download" :href="download">Get FluentSMTP <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M5 12H3v9h18v-9h-2"/></svg></a>
+      <a target="_self" class="site-download" :href="download">Get FluentSMTP <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M5 12H3v9h18v-9h-2"/></svg></a>
       <button ref="toggle" class="mobile-toggle" aria-label="Open website menu" :aria-expanded="mobileOpen" aria-controls="website-mobile-menu" @click="openMobile"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M3 5h18M3 12h18M3 19h18"/></svg></button>
     </div>
     <dialog id="website-mobile-menu" ref="drawer" class="mobile-drawer" aria-label="Website navigation" @close="onDrawerClose" @click="(event) => { if (event.target === drawer) closeMobile() }">
@@ -115,13 +116,13 @@ onBeforeUnmount(() => {
         <button class="drawer-close" aria-label="Close website menu" autofocus @click="closeMobile"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button>
         <nav aria-label="Mobile website navigation">
           <ul>
-            <li v-for="[label, url] in mobileLinks" :key="url"><a :href="url" @click="closeMobile">{{ label }}</a></li>
+            <li v-for="[label, url] in mobileLinks" :key="url"><a target="_self" :href="url" @click="closeMobile">{{ label }}</a></li>
             <li>
               <button class="mobile-plugins-toggle" :aria-expanded="pluginsOpen" aria-controls="mobile-plugins" @click="pluginsOpen = !pluginsOpen">Our Plugins <span class="chevron" aria-hidden="true"></span></button>
-              <ul v-show="pluginsOpen" id="mobile-plugins" class="mobile-plugins"><li v-for="item in groups[3].items" :key="item.href"><a :href="item.href" @click="closeMobile">{{ item.label }}</a></li></ul>
+              <ul v-show="pluginsOpen" id="mobile-plugins" class="mobile-plugins"><li v-for="item in groups[3].items" :key="item.href"><a target="_self" :href="item.href" @click="closeMobile">{{ item.label }}</a></li></ul>
             </li>
-            <li><a href="https://fluentsmtp.com/contact-us/" @click="closeMobile">Contact Us</a></li>
-            <li><a :href="download" @click="closeMobile">Get FluentSMTP</a></li>
+            <li><a target="_self" href="https://fluentsmtp.com/contact-us/" @click="closeMobile">Contact Us</a></li>
+            <li><a target="_self" :href="download" @click="closeMobile">Get FluentSMTP</a></li>
           </ul>
         </nav>
       </div>
