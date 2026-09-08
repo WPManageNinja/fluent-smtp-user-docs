@@ -37,7 +37,7 @@ export default defineConfig({
   ],
   themeConfig: {
     logo: { src: '/logo.svg', alt: 'FluentSMTP' },
-    siteTitle: 'FluentSMTP Docs',
+    siteTitle: 'Docs',
     search: {
       provider: 'local'
     },

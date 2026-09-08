@@ -26,3 +26,24 @@
 .VPNavBarSearch {
   --vp-c-brand-1: #c716c1;
 }
+
+/* Keep provider comparisons readable within the article and on small screens. */
+.provider-comparison .vp-doc th,
+.provider-comparison .vp-doc td {
+  vertical-align: top;
+}
+
+.provider-comparison .vp-doc th:first-child,
+.provider-comparison .vp-doc td:first-child {
+  min-width: 140px;
+}
+
+.provider-comparison .vp-doc th:nth-child(2),
+.provider-comparison .vp-doc td:nth-child(2) {
+  min-width: 220px;
+}
+
+.provider-comparison .vp-doc th:nth-child(3),
+.provider-comparison .vp-doc td:nth-child(3) {
+  min-width: 200px;
+}
