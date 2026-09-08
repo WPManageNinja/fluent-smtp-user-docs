@@ -36,16 +36,11 @@ export default defineConfig({
     ['meta', { name: 'theme-color', content: '#c716c1' }]
   ],
   themeConfig: {
-    logo: { src: '/logo.svg', alt: 'FluentSMTP' },
-    siteTitle: 'Docs',
+    siteTitle: 'Documentation',
     search: {
       provider: 'local'
     },
-    nav: [
-      { text: 'Docs', link: '/' },
-      { text: 'WordPress.org', link: 'https://wordpress.org/plugins/fluent-smtp/' },
-      { text: 'Support', link: 'https://wpmanageninja.com/support-tickets/' }
-    ],
+    nav: [],
     sidebar: [
       {
         text: 'Getting Started',

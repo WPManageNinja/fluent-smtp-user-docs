@@ -47,3 +47,92 @@
 .provider-comparison .vp-doc td:nth-child(3) {
   min-width: 200px;
 }
+
+/* The main header scrolls normally; the docs toolbar stays at the top. */
+:root {
+  --vp-layout-top-height: 0px;
+  --site-header-visible: 80px;
+  --site-header-inner-width: 1280px;
+  --site-header-gutter: 39px;
+  --vp-nav-height: 56px;
+}
+.VPNavBar .title { font-size: 14px; }
+.VPNavBar { background: var(--vp-c-bg) !important; }
+.VPNavBar .divider { display: block !important; }
+.VPNavBar .divider-line { background: var(--vp-c-divider) !important; }
+
+/* The website drawer owns primary navigation; docs utilities stay directly visible. */
+.VPNavBarHamburger,
+.VPNavBarExtra {
+  display: none !important;
+}
+.VPNavBarAppearance {
+  display: flex !important;
+}
+
+.VPNav {
+  position: sticky !important;
+  top: 0 !important;
+  flex-shrink: 0;
+}
+.Layout .VPNavBar .wrapper,
+.Layout .VPNavBar.has-sidebar .wrapper {
+  max-width: var(--site-header-inner-width);
+  margin: 0 auto;
+  padding: 0 var(--site-header-gutter);
+}
+.Layout .VPNavBar .container,
+.Layout .VPNavBar.has-sidebar .container {
+  max-width: none;
+}
+.Layout .VPNavBar.has-sidebar .title {
+  position: static;
+  width: auto;
+  padding: 0;
+}
+.Layout .VPNavBar.has-sidebar .content {
+  padding: 0;
+}
+.VPNavBar .divider { padding: 0 !important; }
+.Layout .VPContent,
+.Layout .VPContent.has-sidebar {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+.Layout .VPLocalNav,
+.Layout .VPLocalNav.fixed {
+  position: sticky;
+  top: var(--vp-nav-height);
+  padding-top: 0;
+}
+@media (min-width: 960px) {
+  .Layout .VPSidebar { top: var(--site-header-visible) !important; }
+}
+@media (max-width: 1199px) {
+  :root { --site-header-gutter: 24px; }
+}
+@media (max-width: 767px) {
+  :root { --site-header-gutter: 16px; }
+}
+
+:root {
+  --site-header-bg: #fff;
+  --site-header-text: #061939;
+  --site-menu-hover: #fcf5fc;
+  --site-drawer-bg: #fdf7fd;
+}
+.dark {
+  --site-header-bg: #1b1b1f;
+  --site-header-text: #dfdfd6;
+  --site-menu-hover: #2b222e;
+  --site-drawer-bg: #202127;
+}
+.dark .site-header .dropdown-links img {
+  background: #fff;
+  padding: 3px;
+  border-radius: 4px;
+}
+
+.Layout .VPDoc .aside-container {
+  padding-top: calc(var(--vp-nav-height) + var(--site-header-visible) + 48px);
+}

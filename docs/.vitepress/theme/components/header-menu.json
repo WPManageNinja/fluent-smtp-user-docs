@@ -1,0 +1,159 @@
+[
+  {
+    "label": "SMTP Integrations",
+    "href": "https://fluentsmtp.com/smtp-integrations/",
+    "items": [
+      {
+        "label": "Gmail/Google Workspace",
+        "href": "https://fluentsmtp.com/smtp-integrations/gmail-google-workspace-smtp-wordpress/",
+        "image": "/header/0-0.png"
+      },
+      {
+        "label": "Amazon SES",
+        "href": "https://fluentsmtp.com/smtp-integrations/amazon-ses-smtp-for-wordpress/",
+        "image": "/header/0-1.png"
+      },
+      {
+        "label": "Postmark",
+        "href": "https://fluentsmtp.com/smtp-integrations/postmark-smtp-wordpress/",
+        "image": "/header/0-2.png"
+      },
+      {
+        "label": "Elastic Email",
+        "href": "https://fluentsmtp.com/smtp-integrations/elastic-email-smtp-wordpress/",
+        "image": "/header/0-3.png"
+      },
+      {
+        "label": "Microsoft Office",
+        "href": "https://fluentsmtp.com/smtp-integrations/microsoft-outlook-smtp-wordpress/",
+        "image": "/header/0-4.png"
+      },
+      {
+        "label": "MailGun",
+        "href": "https://fluentsmtp.com/smtp-integrations/mailgun-smtp-wordpress/",
+        "image": "/header/0-5.png"
+      },
+      {
+        "label": "SparkPost",
+        "href": "https://fluentsmtp.com/smtp-integrations/sparkpost-smtp-wordpress/",
+        "image": "/header/0-6.png"
+      },
+      {
+        "label": "SMTP2Go",
+        "href": "https://fluentsmtp.com/smtp-integrations/smtp2go-plugin-wordpress/",
+        "image": "/header/0-7.webp"
+      },
+      {
+        "label": "SendGrid",
+        "href": "https://fluentsmtp.com/smtp-integrations/sendgrid-smtp-wordpress/",
+        "image": "/header/0-8.png"
+      },
+      {
+        "label": "Netcore",
+        "href": "https://fluentsmtp.com/smtp-integrations/netcore-smtp-wordpress/",
+        "image": "/header/0-9.png"
+      },
+      {
+        "label": "Brevo",
+        "href": "https://fluentsmtp.com/smtp-integrations/brevo-smtp-wordpress/",
+        "image": "/header/0-10.png"
+      }
+    ]
+  },
+  {
+    "label": "Compare",
+    "href": "https://fluentsmtp.com/comparisons/",
+    "items": [
+      {
+        "label": "vs. WP Mail SMTP",
+        "href": "https://fluentsmtp.com/comparisons/fluentsmtp-vs-wp-mail-smtp/",
+        "image": "/header/1-0.webp"
+      },
+      {
+        "label": "vs. Post SMTP",
+        "href": "https://fluentsmtp.com/comparisons/fluentsmtp-vs-post-smtp/",
+        "image": "/header/1-1.webp"
+      },
+      {
+        "label": "vs. Easy WP SMTP",
+        "href": "https://fluentsmtp.com/comparisons/fluentsmtp-vs-easy-wp-smtp/",
+        "image": "/header/1-2.webp"
+      }
+    ]
+  },
+  {
+    "label": "Resources",
+    "items": [
+      {
+        "label": "Getting Started",
+        "href": "https://fluentsmtp.com/getting-started/"
+      },
+      {
+        "label": "Documentation",
+        "href": "/docs/"
+      },
+      {
+        "label": "Articles",
+        "href": "https://fluentsmtp.com/articles/"
+      },
+      {
+        "label": "Support",
+        "href": "https://wpmanageninja.com/support-tickets/"
+      },
+      {
+        "label": "5 Best SMTP Services",
+        "href": "https://fluentsmtp.com/best-transactional-email-services-for-wordpress/"
+      }
+    ]
+  },
+  {
+    "label": "Our Plugins",
+    "items": [
+      {
+        "label": "FluentCRM",
+        "href": "https://fluentcrm.com/",
+        "image": "/header/3-0.png"
+      },
+      {
+        "label": "FluentBooking",
+        "href": "https://fluentbooking.com/",
+        "image": "/header/3-1.png"
+      },
+      {
+        "label": "FluentBoards",
+        "href": "https://fluentboards.com/",
+        "image": "/header/3-2.webp"
+      },
+      {
+        "label": "Fluent Forms",
+        "href": "https://fluentforms.com/",
+        "image": "/header/3-3.png"
+      },
+      {
+        "label": "Fluent Support",
+        "href": "https://fluentsupport.com/",
+        "image": "/header/3-4.png"
+      },
+      {
+        "label": "Paymattic",
+        "href": "https://paymattic.com/",
+        "image": "/header/3-5.png"
+      },
+      {
+        "label": "WP Social Ninja",
+        "href": "https://wpsocialninja.com/",
+        "image": "/header/3-6.png"
+      },
+      {
+        "label": "Ninja Tables",
+        "href": "https://ninjatables.com/",
+        "image": "/header/3-7.webp"
+      },
+      {
+        "label": "AzonPress",
+        "href": "https://azonpress.com/",
+        "image": "/header/3-8.png"
+      }
+    ]
+  }
+]
