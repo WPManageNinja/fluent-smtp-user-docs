@@ -43,10 +43,8 @@ for (const url of urls) {
   assert.ok(html.includes('<meta property="og:image:height" content="630">'), url)
   assert.ok(html.includes('<meta name="twitter:card" content="summary_large_image">'), url)
   assert.ok(html.includes(`<meta name="twitter:image" content="${imageURL}">`), url)
-  if (path) {
-    assert.ok(html.includes('class="doc-feature-image"'), `Missing visible feature image for ${url}`)
-    assert.ok(html.includes(`src="/docs${feature.image}"`), url)
-  }
+  assert.ok(!html.includes('class="doc-feature-image"'), `Social cover must not appear in the article: ${url}`)
+  assert.ok(!html.includes(`src="/docs${feature.image}"`), url)
   assert.ok(html.includes(`href="${url}index.md"`))
   const markdown = readFileSync(new URL(`${path}index.md`, dist), 'utf8')
   assert.ok(markdown.startsWith('# '))

@@ -48,13 +48,6 @@ export default defineConfig({
     ['link', { rel: 'alternate', type: 'text/plain', href: '/docs/llms.txt', title: 'Documentation index for AI readers' }],
     ['meta', { name: 'theme-color', content: '#c716c1' }]
   ],
-  transformPageData(pageData) {
-    const image = featureImageFor(pageData.relativePath)
-    if (image) {
-      pageData.frontmatter.image = image.image
-      pageData.frontmatter.imageAlt = image.alt
-    }
-  },
   transformHead({ pageData }) {
     if (pageData.relativePath === '404.md') {
       return [['meta', { name: 'robots', content: 'noindex' }]]
