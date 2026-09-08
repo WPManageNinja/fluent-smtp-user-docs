@@ -84,3 +84,36 @@ DOCS_TEST_ORIGIN=http://localhost:8787 node scripts/check-discovery.mjs
 Checks cover all sitemap pages, metadata, Markdown discovery and source links, official favicon assets, Accept preferences, live HTML/Markdown responses, HEAD, legacy redirects, and real 404 responses. `npm run preview` serves static output; use Wrangler to test content negotiation.
 
 Implementation references: [Google sitemap guidance](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap), [Cloudflare static asset routing](https://developers.cloudflare.com/workers/static-assets/routing/worker-script/), and [llms.txt](https://llmstxt.org/).
+
+## Plugin documentation feed
+
+`/docs/api/v1/docs.json` is generated at build time from the same Markdown and
+shared sidebar as the website. The versioned envelope is `{ "version": 1, "docs": [...] }`.
+Each article includes a slug `id`, plain-text `title` and `description`, Markdown
+`content` for local search, canonical `link`, and `category: { value, label }`.
+Articles follow sidebar order; the build fails for missing or duplicate membership.
+The homepage is excluded. This is a static JSON asset served by the existing Worker.
+
+The FluentSMTP plugin fetches this feed through its authenticated PHP docs handler,
+caches results for six hours, and retains a non-autoloaded last-success option for
+outages. Failed refreshes with a backup are retried after five minutes. With no
+backup, the plugin shows an error and Retry. Search is local and case-insensitive;
+article links open the documentation website.
+
+Deploy the docs Worker and verify the public JSON endpoint **before releasing the
+updated plugin**. Older plugin versions still use the WordPress REST feed, which
+must remain available during the transition.
+
+### Check hard-coded plugin links before release
+
+With the plugin checkout alongside this repository, run:
+
+```bash
+node scripts/check-plugin-links.mjs
+# With wrangler dev running (also checks redirects, page identity and tracking queries):
+DOCS_TEST_ORIGIN=http://localhost:8787 node scripts/check-plugin-links.mjs
+```
+
+Pass a different plugin checkout path as the first argument if needed. The check
+scans PHP/Vue sources, translation files, readmes and built assets. After deployment,
+repeat with `DOCS_TEST_ORIGIN=https://fluentsmtp.com` to verify production routing.

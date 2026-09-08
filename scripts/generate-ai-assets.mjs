@@ -1,6 +1,7 @@
 import { readdirSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { dirname } from 'node:path'
 import matter from 'gray-matter'
+import sidebar from '../docs/.vitepress/sidebar.mjs'
 
 const source = new URL('../docs/', import.meta.url)
 const output = new URL('../docs/.vitepress/dist/', import.meta.url)
@@ -43,3 +44,24 @@ for (const page of pages) {
 writeFileSync(new URL('llms.txt', output), index)
 writeFileSync(new URL('llms-full.txt', output), `# FluentSMTP complete documentation\n\n${pages.map(page => page.markdown).join('\n\n---\n\n')}`)
 console.log(`Generated Markdown for ${pages.length} pages and AI discovery files.`)
+
+// Share the website's category ordering and membership with the plugin.
+const articles = pages.filter(page => page.file !== 'index.md')
+const docs = sidebar.flatMap(group => group.items.map(item => {
+  const page = articles.find(page => page.url === base + item.link.replace(/^\//, ''))
+  if (!page) throw new Error(`Sidebar article missing: ${item.link}`)
+  return {
+    id: page.file.replace(/\/index\.md$/, ''),
+    title: page.title,
+    description: page.description,
+    content: page.body,
+    link: page.url,
+    category: { value: group.text.toLowerCase().replace(/[^a-z0-9]+/g, '-'), label: group.text }
+  }
+}))
+if (docs.length !== articles.length || new Set(docs.map(doc => doc.id)).size !== articles.length) {
+  throw new Error('Every documentation article must appear exactly once in the sidebar')
+}
+mkdirSync(new URL('api/v1/', output), { recursive: true })
+writeFileSync(new URL('api/v1/docs.json', output), JSON.stringify({ version: 1, docs }))
+console.log(`Generated plugin index for ${docs.length} articles.`)

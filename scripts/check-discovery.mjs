@@ -10,6 +10,17 @@ const sources = readdirSync(new URL('../docs/', import.meta.url), { recursive: t
   .filter(path => path.endsWith('.md') && !path.startsWith('.') && !path.startsWith('public/') && path !== '404.md')
 assert.equal(urls.length, sources.length, 'Every source page must appear in the sitemap')
 assert.equal(new Set(urls).size, urls.length)
+const index = JSON.parse(readFileSync(new URL('api/v1/docs.json', dist), 'utf8'))
+assert.equal(index.version, 1)
+assert.equal(index.docs.length, sources.length - 1)
+assert.equal(new Set(index.docs.map(doc => doc.id)).size, index.docs.length)
+for (const doc of index.docs) {
+  assert.ok(urls.includes(doc.link) && doc.link !== 'https://fluentsmtp.com/docs/')
+  for (const value of [doc.id, doc.title, doc.description, doc.content, doc.category.value, doc.category.label]) {
+    assert.equal(typeof value, 'string')
+    assert.ok(value.length > 0)
+  }
+}
 const llms = readFileSync(new URL('llms.txt', dist), 'utf8')
 const full = readFileSync(new URL('llms-full.txt', dist), 'utf8')
 for (const url of urls) {
@@ -41,6 +52,13 @@ for (const [accept, expected] of [
 
 if (process.env.DOCS_TEST_ORIGIN) {
   const origin = process.env.DOCS_TEST_ORIGIN
+  const feed = await fetch(origin + '/docs/api/v1/docs.json')
+  assert.equal(feed.status, 200)
+  assert.match(feed.headers.get('content-type'), /application\/json/)
+  assert.deepEqual(await feed.json(), index)
+  const feedHead = await fetch(origin + '/docs/api/v1/docs.json', { method: 'HEAD' })
+  assert.equal(feedHead.status, 200)
+  assert.equal(await feedHead.text(), '')
   for (const url of urls) {
     const path = new URL(url).pathname
     const html = await fetch(origin + path)
