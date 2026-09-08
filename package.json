@@ -1,0 +1,19 @@
+{
+  "name": "fluent-smtp-user-docs",
+  "version": "1.0.0",
+  "private": true,
+  "description": "FluentSMTP user documentation. Published as a Cloudflare Worker and served at /docs/.",
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs && node scripts/prepare-worker-assets.mjs",
+    "preview": "vitepress preview docs",
+    "types": "wrangler types --include-runtime=false",
+    "deploy": "npm run build && wrangler deploy"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.4",
+    "vue": "^3.5.42",
+    "wrangler": "^4.129.1"
+  }
+}

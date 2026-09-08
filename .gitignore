@@ -1,0 +1,8 @@
+node_modules
+docs/.vitepress/cache
+docs/.vitepress/dist
+docs/.vitepress/dist-cf
+.wrangler
+.dev.vars
+.DS_Store
+*.log

@@ -1,0 +1,28 @@
+:root {
+  --vp-c-brand-1: #c716c1;
+  --vp-c-brand-2: #9e0099;
+  --vp-c-brand-3: #7a0076;
+  --vp-c-brand-soft: rgba(199, 22, 193, 0.12);
+  --vp-home-hero-name-color: #c716c1;
+}
+
+.dark {
+  --vp-c-brand-1: #e35ddd;
+  --vp-c-brand-2: #c716c1;
+  --vp-c-brand-3: #9e0099;
+  --vp-c-brand-soft: rgba(227, 93, 221, 0.16);
+}
+
+.vp-doc img {
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+}
+
+.vp-doc .tip.custom-block {
+  border-color: var(--vp-c-brand-1);
+}
+
+.DocSearch-Button-Placeholder,
+.VPNavBarSearch {
+  --vp-c-brand-1: #c716c1;
+}
