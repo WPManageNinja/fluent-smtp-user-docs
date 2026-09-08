@@ -6,7 +6,8 @@ const href = computed(() => withBase('/' + page.value.relativePath))
 </script>
 
 <template>
-  <p class="markdown-link"><a :href="href">Read as Markdown ↗</a></p>
+  <!-- Fetch the raw asset instead of letting VitePress route .md links as pages. -->
+  <p class="markdown-link"><a :href="href" target="_self">Read as Markdown ↗</a></p>
 </template>
 
 <style scoped>
