@@ -46,7 +46,14 @@ export default defineConfig({
     ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/docs/apple-touch-icon.png' }],
     ['link', { rel: 'sitemap', type: 'application/xml', href: '/docs/sitemap.xml' }],
     ['link', { rel: 'alternate', type: 'text/plain', href: '/docs/llms.txt', title: 'Documentation index for AI readers' }],
-    ['meta', { name: 'theme-color', content: '#c716c1' }]
+    ['meta', { name: 'theme-color', content: '#c716c1' }],
+    ['script', { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-83YWNJ7JBV' }],
+    ['script', {}, `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('set', 'cookie_domain', 'auto');
+gtag('set', 'cookie_flags', 'SameSite=None;Secure');
+gtag('config', 'G-83YWNJ7JBV', {});`]
   ],
   transformHead({ pageData }) {
     if (pageData.relativePath === '404.md') {
