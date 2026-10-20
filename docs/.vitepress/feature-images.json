@@ -250,5 +250,14 @@
     "art": "One minimal outlined smartphone showing an envelope notification and a small purple bell beside it.",
     "image": "/og/email-sending-error-notification-pushover.jpg",
     "alt": "Email alerts, on your phone. Get sending failures through Pushover."
+  },
+  {
+    "slug": "wp-cli-commands",
+    "eyebrow": "WP-CLI",
+    "title": "Fix email\nfrom the terminal.",
+    "subtitle": "Test, check, and prune with wp fluent-smtp.",
+    "art": "A minimal outlined terminal window with a purple prompt and three short command lines, an envelope with a small check mark beside it.",
+    "image": "/og/wp-cli-commands.jpg",
+    "alt": "Fix email from the terminal. Test, check, and prune with wp fluent-smtp."
   }
 ]

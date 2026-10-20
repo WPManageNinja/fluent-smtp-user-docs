@@ -53,7 +53,8 @@ export default [
         collapsed: false,
         items: [
           { text: 'Multiple connections and routing', link: '/using-multiple-smtp-drivers-with-fluent-smtp/' },
-          { text: 'Email logs', link: '/fluentsmtp-email-logs-feature/' }
+          { text: 'Email logs', link: '/fluentsmtp-email-logs-feature/' },
+          { text: 'WP-CLI commands', link: '/wp-cli-commands/' }
         ]
       }
     ]
